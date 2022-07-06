@@ -5,7 +5,7 @@ export default function Home({ data }) {
 
   const lastInformes = data?.data?.datas?.data[0]
   const title = lastInformes?.title
-  console.log( lastInformes )
+  console.log(lastInformes)
   return (
     <div className={styles.container}>
       <Link href="https://data.larepublica.pe/">
@@ -13,6 +13,9 @@ export default function Home({ data }) {
           <main className={styles.main}>
             <img className={styles.img} src='/lrdata.png' alt="lrdata" />
             <div>
+              <p className={styles.p}>
+                Último Informe
+              </p>
               <p className={styles.p}>
                 {/* investigación social, política y periodismo de datos */}
                 {title}
