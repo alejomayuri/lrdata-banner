@@ -3,7 +3,9 @@ import Link from 'next/link'
 
 export default function Home({ data }) {
 
-  // const lastInformes = data.data?.datas?.data[0]
+  const lastInformes = data?.data?.datas?.data[0]
+  const title = lastInformes?.title
+  console.log( lastInformes )
   return (
     <div className={styles.container}>
       <Link href="https://data.larepublica.pe/">
@@ -12,7 +14,8 @@ export default function Home({ data }) {
             <img className={styles.img} src='/lrdata.png' alt="lrdata" />
             <div>
               <p className={styles.p}>
-                investigación social, política y periodismo de datos
+                {/* investigación social, política y periodismo de datos */}
+                {title}
               </p>
             </div>
           </main>
@@ -22,30 +25,30 @@ export default function Home({ data }) {
   )
 }
 
-// Home.getInitialProps = async (ctx) => {
-//   let responseInformes = {}
-//   let responseData = {}
+Home.getInitialProps = async (ctx) => {
+  let responseInformes = {}
+  let responseData = {}
 
-//   const objet_fect = {
-//     method: 'GET',
-//     headers: {
-//       'Content-Type': 'application/json',
-//       'token_id': 'eac355Be7AEhhj222E18JChIE7j972573BAj2B1Eg4'
-//     }
-//   }
+  const objet_fect = {
+    method: 'GET',
+    headers: {
+      'Content-Type': 'application/json',
+      'token_id': 'eac355Be7AEhhj222E18JChIE7j972573BAj2B1Eg4'
+    }
+  }
 
-//   try {
-//     responseInformes = await fetch(`https://cronosservices.glr.pe/api/content/package/list?site_id=larepublica&status=1&order_field=updated_at&subdomain=data`, objet_fect)
-//     responseInformes = await responseInformes.json()
+  try {
+    responseInformes = await fetch(`https://cronosservices.glr.pe/api/content/package/list?site_id=larepublica&status=1&order_field=updated_at&subdomain=data`, objet_fect)
+    responseInformes = await responseInformes.json()
 
-//     responseData = await fetch(`https://cronosservices.glr.pe/api/content/data/list?site_id=larepublica&status=1&order_field=updated_at&subdomain=data`, objet_fect)
-//     responseData = await responseData.json()
-//   } catch (e) {
-//     console.error(e)
-//   }
+    responseData = await fetch(`https://cronosservices.glr.pe/api/content/data/list?site_id=larepublica&status=1&order_field=updated_at&subdomain=data`, objet_fect)
+    responseData = await responseData.json()
+  } catch (e) {
+    console.error(e)
+  }
 
-//   return {
-//     informes: responseInformes,
-//     data: responseData
-//   }
-// }
+  return {
+    informes: responseInformes,
+    data: responseData
+  }
+}
