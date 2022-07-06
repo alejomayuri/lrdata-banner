@@ -3,7 +3,7 @@
 .container {
   width: 310px;
   height: 86px;
-  background-image: url('../public/fondo.png');
+  background-image: url('/fondo.png');
   background-size: contain;
   background-position: center;
 }

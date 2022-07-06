@@ -9,7 +9,7 @@ export default function Home({ data }) {
       <Link href="https://data.larepublica.pe/">
         <a target="_blanck">
           <main className={styles.main}>
-            <img className={styles.img} src='lrdata.png' alt="lrdata" />
+            <img className={styles.img} src='/lrdata.png' alt="lrdata" />
             <div>
               <p className={styles.p}>
                 investigación social, política y periodismo de datos
